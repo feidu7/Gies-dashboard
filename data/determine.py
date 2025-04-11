@@ -126,13 +126,14 @@ from langchain_openai import OpenAIEmbeddings
 
 # Load environment variables if needed
 load_dotenv()
+openai_api_key = os.getenv("OPENAI_API_KEY")
 
 if not os.getenv("OPENAI_API_KEY"):
     os.environ["OPENAI_API_KEY"] = getpass.getpass("Enter your OpenAI API key: ")
 
 embeddings = OpenAIEmbeddings(
     model="text-embedding-3-large",
-    openai_api_key="",
+    openai_api_key=openai_api_key,
 )
 
 loaded_faiss = FAISS.load_local(

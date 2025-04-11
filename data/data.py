@@ -9,12 +9,15 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 from bs4 import BeautifulSoup
+from dotenv import load_dotenv
+import os
 
 # -------------------------------------------------------------------
 # Configuration and API Key
 # -------------------------------------------------------------------
-API_KEY = "api"
 
+load_dotenv()
+API_KEY = os.getenv("EXPERTS_API_KEY")
 
 # =========================
 # Part 1: Combine API & Selenium Data

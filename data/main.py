@@ -57,7 +57,8 @@ def update_research_outputs():
     # Drop the redundant uuid column from the join
     new_research_df = new_research_df.drop(columns=["uuid"])
 
-    output_file = "person_research_outputs.csv"
+    os.makedirs("public", exist_ok=True)
+    output_file = "public/person_research_outputs.csv"
     if os.path.exists(output_file):
         existing_df = pd.read_csv(output_file)
 
